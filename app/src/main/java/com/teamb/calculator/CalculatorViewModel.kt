@@ -25,6 +25,7 @@ class CalculatorViewModel : ViewModel() {
             CalculatorAction.Delete -> performDelete()
             is CalculatorAction.Number -> onNumber(action.number)
             is CalculatorAction.Operation -> onOperation(action.operation)
+            else -> {}
         }
     }
 
@@ -85,6 +86,7 @@ class CalculatorViewModel : ViewModel() {
                 CalculatorOperation.Multiply -> num1 *= num2
                 CalculatorOperation.Subtract -> num1 -= num2
                 null -> num1 = 0.0
+                else -> {}
             }
         }
         state = CalculatorState(number1 = num1.toString().take(10))
